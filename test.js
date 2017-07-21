@@ -38,7 +38,6 @@ function translate(postURL) {
   }).catch(function(error){
     console.log("error: " + error);
   });
-  console.log('returning promise')
   return promise;
 
 }
