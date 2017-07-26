@@ -5,4 +5,3 @@ password in the test.js file, on lines 4 and 5.
 
 Here is a demo of the finished app: https://www.youtube.com/watch?v=NvVWBkTd2AI
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/NvVWBkTd2AI" frameborder="0" allowfullscreen></iframe>
