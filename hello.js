@@ -3,5 +3,5 @@ function main({name}) {
   if (name) {
     msg = `hello ${name}!`
   }
-  return {body: `<html><body><h3>{msg}</h3></body></html>`}
+  return {body: `<html><body><h3>${msg}</h3></body></html>`}
 }
