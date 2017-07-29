@@ -85,7 +85,7 @@
         data.text = document.getElementById("text").value;
         //need to convert to string to be able to communicate over HTTP
         var json = JSON.stringify(data);
-        var OpenWhiskUrl = "https://openwhisk.ng.bluemix.net/api/v1/web/Developer%20Advocate_dev/demo1/test"
+        var OpenWhiskUrl = "https://openwhisk.ng.bluemix.net/api/v1/web/{yournamespace}/demo1/test"
         //Our HttpRequest that will enable us to talk to Watson
         var ourRequest = new XMLHttpRequest();
 
