@@ -83,16 +83,8 @@
         data.source = document.getElementById("source").value;
         data.target = document.getElementById("target").value;
         data.text = document.getElementById("text").value;
-
-        if (data.source == data.target) {
-          alert("please enter a different language")
-          loader.hidden = true;
-          return
-        }
-
         //need to convert to string to be able to communicate over HTTP
         var json = JSON.stringify(data);
-
         var OpenWhiskUrl = "https://openwhisk.ng.bluemix.net/api/v1/web/Developer%20Advocate_dev/demo1/test"
         //Our HttpRequest that will enable us to talk to Watson
         var ourRequest = new XMLHttpRequest();
