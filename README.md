@@ -2,7 +2,7 @@
 
 This is the code from my blog on creating a translation app using Watons Language Translation and OpenWhisk: 
 
-http://localhost:1313/blog/openwhisk-web-actions-and-rest-api-calls/
+https://horeaporutiu.github.io/blog/openwhisk-web-actions-and-rest-api-calls/
 
 To get started, make sure you have: 
 
