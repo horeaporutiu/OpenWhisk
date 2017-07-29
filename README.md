@@ -1,6 +1,10 @@
 # OpenWhisk
 
-To run this code, you must have 
+This is the code from my blog on creating a translation app using Watons Language Translation and OpenWhisk: 
+
+http://localhost:1313/blog/openwhisk-web-actions-and-rest-api-calls/
+
+To get started, make sure you have: 
 
 1) A free IBM Cloud 'Bluemix' account: https://console.bluemix.net/registration
 
