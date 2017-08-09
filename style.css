@@ -1,6 +1,7 @@
 body {
   background-color: #f2f2f2;
 }
+
 .loader {
     border: 16px solid white; /* Light grey */
     border-top: 16px solid #3498db; /* Blue */
@@ -32,8 +33,16 @@ select {
     border-radius: 4px;
     background-color: white;
 }
+form {
+    display: inline;
+}
+#record {
+  margin-left: 10px;
+}
+
 input[type=submit] {
-    width: 50%;
+    display: inline;
+    width: 23.8%;
     background-color: #3498db;
     color: white;
     padding: 14px 20px;
@@ -41,6 +50,7 @@ input[type=submit] {
     border: none;
     cursor: pointer;
     font-size: 20px;
+    font-family: FontAwesome;
 }
 input[type=submit]:hover {
     background-color: #0CABE8;
