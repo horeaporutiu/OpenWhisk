@@ -31,19 +31,21 @@
         <center>
           <label for="text"></label>
           <input type = "text" placeholder="Translate Something..." id= "text" name="text" required>
+        </center>
+      </div>
+      <div>
+        <center>
           <form name ="login-form" action=javascript:translate()>
             <input id = "translate" type="submit" value="Translate">
           </form>
           <form name ="login-form" action=javascript:startTranscribe()>
              <input id = "record" type="submit" value="&#xf130;  Record">
           </form>
+          <br>
+          <br>
+          <div id ="transText" ></div>
+          <div id = "myLoader" class="loader"></div>
         </center>
-      <center>
-        <br>
-        <br>
-        <div id ="transText" ></div>
-        <div id = "myLoader" class="loader"></div>
-      </center>
     </div>
 
         <!-- Start of JavaScript -->
