@@ -2,8 +2,8 @@
 var request = require('request');
 
 function main(params) {
-  var username = "username";
-  var password = "password";
+  var username = params.speechToTextUsername;
+  var password = params.speechToTextPassword;
   var auth = "Basic " + new Buffer(username + ":" + password).toString("base64");
 
   var speechToTextUrl = "https://stream.watsonplatform.net/authorization/api/v1/token?url=https://stream.watsonplatform.net/speech-to-text/api";

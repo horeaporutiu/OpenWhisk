@@ -27,7 +27,7 @@
           <option value="French">French</option>
         </select>
       </div>
-      <div>
+      <div id = "textBox">
         <center>
           <label for="text"></label>
           <input type = "text" placeholder="Translate Something..." id= "text" name="text" required>
@@ -40,6 +40,9 @@
           </form>
           <form name ="login-form" action=javascript:startTranscribe()>
              <input id = "record" type="submit" value="&#xf130;  Record">
+          </form>
+          <form name ="login-form" action=javascript:pronounce()>
+             <input id = "record" type="submit" value="&#xf028; Pronounce">
           </form>
           <br>
           <br>
@@ -95,10 +98,11 @@
         data.text = document.getElementById("text").value;
         //need to convert to string to be able to communicate over HTTP
         var json = JSON.stringify(data);
+        //var nodeKituraUrl = "http://localhost:8080/translates"
         var OpenWhiskUrl = "https://openwhisk.ng.bluemix.net/api/v1/web/Developer%20Advocate_dev/demo1/test"
         //Our HttpRequest that will enable us to talk to Watson
         var ourRequest = new XMLHttpRequest();
-
+        //TODO: change URL as needed to use different back end services ;)
         ourRequest.open("POST", OpenWhiskUrl, true);
         ourRequest.setRequestHeader('Content-type','application/json');
         ourRequest.onload = function() {
@@ -121,6 +125,8 @@
         //Our HttpRequest that will enable us to talk to Watson
         var getSpeechToTextToken = new XMLHttpRequest();
         getSpeechToTextToken.open("GET", OpenWhiskUrl1, true);
+
+
         //ourReq.setRequestHeader('Content-type','text/plain');
         getSpeechToTextToken.onload = function() {
           if (getSpeechToTextToken.status == 400) {
@@ -148,6 +154,51 @@
           }
         }
         getSpeechToTextToken.send();
+      }
+
+      function pronounce() {
+
+        var targetLang = document.getElementById("target").value
+        var voice = ''
+        //match voice to language for smooth pronunciation ;)
+        switch(targetLang) {
+          case "Spanish":
+            voice = 'es-ES_EnriqueVoice';
+            break;
+          case "Portuguese":
+            voice = 'pt-BR_IsabelaVoice'
+            break;
+          case "French":
+            voice = 'fr-FR_ReneeVoice'
+            break;
+          case "English":
+            voice = 'en-US_MichaelVoice'
+            break;
+          default:
+            voice = 'es-ES_EnriqueVoice'
+        }
+
+        var OpenWhiskUrl = "https://openwhisk.ng.bluemix.net/api/v1/web/Developer%20Advocate_dev/demo1/textToSpeech"
+        //Our HttpRequest that will enable us to talk to Watson
+        var getTextToSpeechToken = new XMLHttpRequest();
+        getTextToSpeechToken.open("GET", OpenWhiskUrl, true);
+        //ourReq.setRequestHeader('Content-type','text/plain');
+        getTextToSpeechToken.onload = function() {
+          if (getTextToSpeechToken.status == 400) {
+            outputText.innerHTML = "Error, check your network connection.";
+          }
+          else {
+
+            var Watson = WatsonSpeech.TextToSpeech.synthesize({
+              objectMode: true,
+              voice: voice,
+              token: getTextToSpeechToken.responseText,
+              text: document.getElementById("transText").innerHTML
+            })
+
+          }
+        }
+        getTextToSpeechToken.send();
       }
 
     </script>
