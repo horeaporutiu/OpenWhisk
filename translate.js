@@ -1,10 +1,10 @@
 var request = require('request');
 
 function main(params) {
-  var username = "username";
-  var password = "password";
+  var translationUsername = params.translationUsername;
+  var translationPassword = params.translationPassword;
 
-  var postURL = "https://" + username + ":" + password +
+  var postURL = "https://" + translationUsername + ":" + translationPassword +
   "@gateway.watsonplatform.net/language-translator/api/v2/translate";
 
   var promise = new Promise(function(resolve, reject) {

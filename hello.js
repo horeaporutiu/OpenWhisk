@@ -1,5 +1,5 @@
 function main({name}) {
-  var msg = 'you did not tell me who you are.';
+  var msg = 'you did not tell';
   if (name) {
     msg = `hello ${name}!`
   }
